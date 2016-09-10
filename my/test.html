@@ -1,57 +1,129 @@
-<!DOCTYPE >
-<html>
-    <title> New Document </title>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.css" rel="stylesheet">
-
-    <style type="text/css">
-        li{list-style-type:none;}
-        a{text-decoration:none;outline:none;}
-        .ce li{float:left}
-        .ce{display:block;width:100%;height: 15%;background-image: linear-gradient(to right,rgba(255,255,255,0),rgba(150,255,255,1),rgba(255,255,255,0));position: absolute;top:0%;padding-left:10%;}
-        @media screen and (min-width:1024px) {
-            #mydiv2{display:none;}
-            #mydiv3{display:none;}
-
-
-            #mydiv .ce li {padding:10% 5%;color:rgb(60,60,60);display:block;margin:-6% 1% 5%;cursor:pointer;font-size:150%;font-weight: bolder}
-        }
-        @media screen and (min-width: 768px){
-
-            #mydiv .ce li {padding:10% 10%;color:rgb(60,60,60);display:block;margin:-6% -2% 0%;cursor:pointer;font-size:100%;font-weight: bolder}
-            #mydiv2{display:none;}
-            #mydiv3{display:none;}
-        }
-        @media screen and (max-width: 768px){
-            #mydiv{display:none;}
-            #mydiv3 {padding:0% 0%;color:rgb(60,60,60);display:block;margin:90% 0% 0%;cursor:pointer;font-size:50%;font-weight: bolder}
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title></title>
 </head>
+<style class="ng-scope">
+    ._heroBox {
+        background-color: #19697c;
+        height: 0px;
+        margin-bottom: 24px;
+        margin-top: -24px;
+        overflow: hidden;
+        position: relative;
+    }
+    ._heroBox .imgBox {
+        height: 200px;
+        float: right;
+        text-align: right;
+    }
+    ._heroBox .imgBox .img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 200px;
+    }
 
+    .circle {
+        position: absolute;
+        right: 10px;
+        bottom: 7px;
+        opacity: 0.7;
+    }
+
+    .circle a{
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        display: block;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .circle a:hover {
+        background: #14758B;
+    }
+</style>
 <body>
-<div id="mydiv1" ><a><img style="float: left;" src="../picture/xiangmugongchang2.png"/></a>
-<div id="mydiv2" ><input type="text" ><input type="button" value="搜索" ></div>
+<div style="height: 200px;" id="herobox" class="_heroBox ng-scope">
+    <div class="imgBox">
+        <a onclick="" href="#" target="_blank"><img  class="img" src="../_picture/home_c4.png"></a>
+        <a onclick="" href="#" target="_blank"><img  class="img" src="../_picture/home_c7.png"></a>
+        <a onclick="" href="#" target="_blank"><img  class="img" src="../_picture/home_c3.png"></a>
+        <a onclick="" href="#" target="_blank"><img sclass="img" src="../picture/home_c2.png"></a>
+    </div>
+    <div class="circle clearfix">
+        <a style="background-color: rgb(20, 117, 139);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a><a style="background-color: rgb(255, 255, 255);"></a></div>
 </div>
-<div id="mydiv">
-<ul class="ce" >
-    <li><a id="navon0" class="ce1" href="#">首 &nbsp; &nbsp;页</a> </li>
-    <li><a id="navon1"class="ce1" href="#">课程分类&nbsp;&nbsp;&nbsp;</a></li>
-    <li><a id="navon2" class="ce1" href="#">购物车</a> </li>
-    <li><a id="navon3" class="ce1" href="#">个人中心</a> </li>
-</ul>
-</div>
-<div id="mydiv3">
-    <ul class="ce1">
-        <li><button id="navona" class="ce1" href="#">首 &nbsp; &nbsp;页</button> </li>
-        <li><button id="navonb"class="ce1" href="#">课程分类&nbsp;&nbsp;&nbsp;</button></li>
-        <li><button id="navonc" class="ce1" href="#">购物车</button> </li>
-        <li><button id="navond" class="ce1" href="#">个人中心</button> </li>
-    </ul>
-</div>
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.3/js/bootstrap.js"></script>
+<script class="ng-scope">
+    var _heroBoxApp = function() {
 
+        var imgtotaln = $('.img').length;
+        var aniId;
+
+        var html = "<a></a>"
+
+        $('.imgBox').ready(function() {
+            $('#herobox').fadeIn(200);
+            $("#herobox").animate({
+                height: "200px",
+            }, 200);
+            $('.img').hide();
+            curimgn = 0;
+            $($('.img')[0]).show();
+            for (var i = 0; i < imgtotaln; i++) {
+                $(".circle").append(html);
+            };
+            $(".circle>a").first().css("background-color","#14758B");
+            startani();
+        });
+
+        $('.circle>a').click(function(){
+            var index = $(this).index();
+            if (index == curimgn) {
+                return;
+            };
+            changeimg(index);
+        })
+
+        var curimgn = 0;
+
+        function startani() {
+            if (aniId) clearInterval(aniId);
+            aniId = setInterval(function() {
+                autochange();
+            }, 6000);
+        };
+
+        function stopani() {
+            if (aniId) clearInterval(aniId);
+        };
+
+        function autochange() {
+            changeimg(curimgn + 1);
+        };
+
+        function changeimg(n) {
+            $('.img').each(function(i, one) {
+                if (n >= imgtotaln) n = 0;
+                if (i == curimgn) {
+                    $(one).fadeOut(500);
+                    $('.circle>a').eq(i).css("background-color","#fff");
+                } else if (i == n) {
+                    $(one).fadeIn(500);
+                    $('.circle>a').eq(i).css("background-color","#14758B");
+                };
+            });
+            curimgn = n;
+            if (curimgn >= imgtotaln) curimgn = 0;
+        };
+    }();
+</script></div>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 </body>
 </html>
