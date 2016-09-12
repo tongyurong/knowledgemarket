@@ -15,6 +15,7 @@
                 width:20%;
                 margin-left: 5%;
             }
+            #mybtn{display:none;}
         }
         @media screen and (max-width:768px) {
             #allstudy{
@@ -22,14 +23,17 @@
 
             }
         }
+
     </style>
+
+
 </head>
 <body>
 
 <!--<button id="mybtn" type="button">大家都在学</button>-->
 <div id="allstudy">
 
-    <h3 style="background-color: red">大家都在学</h3>
+    <h3 style="background-color: red;width:100%">大家都在学</h3>
     <hr>
     <span>
         <img src="../picture/11.jpg"/>
@@ -62,7 +66,10 @@
     </span>
 </div>
 </div>
+<button id="mybtn">大家都在学</button>
 
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 <script>
     $("#allstudy").css("dispaly","none");
     $(document).ready(function(){
@@ -73,7 +80,6 @@
         });
     });
 </script>
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
 </body>
 </html>

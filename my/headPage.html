@@ -12,10 +12,24 @@
            left:70%;
            top:-1%;
        }
+        #nav{
+            width:100%;
+            position:fixed;
+            margin-top: 0px;
+            z-index: 1024;
+        }
     </style>
 </head>
 
 <body>
+<script>
+    $(function nav(){
+        $("#nav").load("nav.html");
+    })
+</script>
+<div id="nav">
+
+</div>
 <div >
     <script>
         $(function nav(){
