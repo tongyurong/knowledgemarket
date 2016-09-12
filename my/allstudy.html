@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>大家都在学</title>
+    <style>
+        #allstudy{
+            border-left: 1px dashed blue;
+            padding-left: 3%;
+        }
+        @media screen and (min-width:768px) {
+            #allstudy{
+                width:20%;
+                margin-left: 5%;
+            }
+        }
+        @media screen and (max-width:768px) {
+            #allstudy{
+               display: none;
+
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--<button id="mybtn" type="button">大家都在学</button>-->
+<div id="allstudy">
+
+    <h3 style="background-color: red">大家都在学</h3>
+    <hr>
+    <span>
+        <img src="../picture/11.jpg"/>
+        <div class="btn">
+            <button type="button">课程详情</button>
+            <button type="button">加入购物车</button><br/>
+            <button type="button">立即购买</button>
+            <button type="button">收藏</button>
+        </div>
+    </span>
+    <hr>
+    <span>
+        <img src="../picture/11.jpg"/>
+        <div class="btn">
+            <button type="button">课程详情</button>
+            <button type="button">加入购物车</button><br/>
+            <button type="button">立即购买</button>
+            <button type="button">收藏</button>
+        </div>
+    </span>
+    <hr>
+    <span>
+        <img src="../picture/11.jpg"/>
+        <div class="btn">
+            <button type="button">课程详情</button>
+            <button type="button">加入购物车</button><br/>
+            <button type="button">立即购买</button>
+            <button type="button">收藏</button>
+        </div>
+    </span>
+</div>
+</div>
+
+<script>
+    $("#allstudy").css("dispaly","none");
+    $(document).ready(function(){
+        $("#mybtn").click(function(){
+            $("#allstudy").animate({
+                width:'toggle'
+            });
+        });
+    });
+</script>
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+</body>
+</html>

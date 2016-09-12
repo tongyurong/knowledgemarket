@@ -11,12 +11,21 @@
             top:0%;
             height:50%;
         }
+
+        @media screen and (max-width: 768px){
+            #bs-example-navbar-collapse-1{
+                position: absolute;
+                left:70%;
+                width:30%;
+                z-index: 1;
+            }
+        }
     </style>
 </head>
 
 <body>
 <header>
-    <nav class="navbar navbar-default" role="navigation" style="height:10%;margin-top: 0%;width:100%;">
+    <nav class="navbar navbar-default" role="navigation" style="margin-top: 0%;width:100%;">
         <div class="container-fluid">
 
             <div class="navbar-header"  >
@@ -30,14 +39,14 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" z-index="999999">
 
                 <ul class="nav navbar-nav navbar-right">
                     <li class="text-right"><a href="#">首页</a></li>
                     <li class="text-right"><a href="#">课程分类</a></li>
                     <li class="text-right"><a href="#">购物车</a></li>
                     <li class="dropdown text-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" >个人中心<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li class="text-right"><a href="#">我的购物车</a></li>
                             <li class="text-right"><a href="#">我的收藏</a></li>
@@ -55,11 +64,11 @@
 <script src="//cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
 <script >$(document).ready(function(){
-$("button").click(function(){
-$("#bs-example-navbar-collapse-1").animate({
-width:'toggle'
-});
-});
+    $("button").click(function(){
+        $("#bs-example-navbar-collapse-1").animate({
+            width:'toggle'
+        });
+    });
 });
 </script>
 </body>
